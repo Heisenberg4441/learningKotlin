@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: learning-kotlin
+  datasource:
+    url: jdbc:mysql://localhost:3306/learningkotlin
+    username: root
+    password: ""
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.zaxxer.hikari: DEBUG
+    org.hibernate.sql: DEBUG
