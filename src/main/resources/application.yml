@@ -2,17 +2,16 @@ spring:
   application:
     name: learning-kotlin
   datasource:
-    url: jdbc:mysql://localhost:3306/learningkotlin
+    url: jdbc:mysql://localhost:3306/lk
     username: root
-    password: ""
+    password: "SpygzQ0D$50A%w5:"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
 
 springdoc:
@@ -20,8 +19,10 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
-
 logging:
   level:
     com.zaxxer.hikari: DEBUG
     org.hibernate.sql: DEBUG
+jwt:
+  secret: very-secret
+  expiration: 36000000000
