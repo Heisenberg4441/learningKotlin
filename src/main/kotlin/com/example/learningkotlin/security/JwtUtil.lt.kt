@@ -2,6 +2,7 @@ package com.example.learningkotlin.security
 
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.Jwts
+import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import java.util.Date
@@ -19,7 +20,7 @@ class JwtUtil(
             .setSubject(userId.toString())
             .setIssuedAt(now)
             .setExpiration(expiryDate)
-            .signWith(SignatureAlgorithm.HS256, secret)
+            .signWith(Keys.hmacShaKeyFor(secret.toByteArray()), SignatureAlgorithm.HS256)
             .compact()
     }
 

@@ -32,7 +32,7 @@ class SecurityConfig(
             sessionManagement {
                 sessionCreationPolicy = SessionCreationPolicy.STATELESS
             }
-            //addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter::class.java)
+            addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter::class.java)
         }
         return http.build()
     }

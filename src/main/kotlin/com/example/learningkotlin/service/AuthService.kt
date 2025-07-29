@@ -20,7 +20,7 @@ class AuthService(
         val user = userRepository.findByLogin(login)
             ?: throw RuntimeException("User not found")
 
-        if (!passwordEncoder.matches(password, user.password)) {
+        if (user.password != password) {
             throw RuntimeException("Invalid password")
         }
 
