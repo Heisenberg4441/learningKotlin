@@ -20,7 +20,7 @@ class JwtAuthFilter(
 
     override fun shouldNotFilter(request: HttpServletRequest): Boolean {
         val path = request.servletPath
-        return path.startsWith("/public/")
+        return path.startsWith("/public") || path.startsWith("/login")
     }
 
     override fun doFilterInternal(
